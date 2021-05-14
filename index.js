@@ -32,11 +32,9 @@ app.post('/search', (req, res) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log({ data });
       res.status(200).send(data);
     })
     .catch((err) => {
-      console.log(`err`, err);
       res.status(500).send(err);
     });
 });
@@ -50,11 +48,9 @@ app.get('/tracks', (req, res) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log({ data });
       res.status(200).send(data);
     })
     .catch((err) => {
-      console.log(`err`, err);
       res.status(500).send(err);
     });
 });
