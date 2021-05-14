@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const logger = require('morgan');
 
+const token = process.env.DEEZER_KEY;
+
 const app = express();
 dotenv.config({ path: './.env' });
 app.use(bodyParser.urlencoded({ extended: true, limit: '5mb ' }));
@@ -26,7 +28,7 @@ app.post('/search', (req, res) => {
     mode: 'no-cors',
     Accept: 'application/json, text/plain, */*',
     'Content-Type': 'application/json, text/plain, */*',
-    Authorization: 'Bearer e9d874c859b7133d36df9b5bcd38512d',
+    Authorization: `Bearer ${token}`,
   })
     .then((response) => response.json())
     .then((data) => {
@@ -44,7 +46,7 @@ app.get('/tracks', (req, res) => {
     method: 'GET',
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Authorization: 'Bearer e9d874c859b7133d36df9b5bcd38512d',
+    Authorization: `Bearer ${token}`,
   })
     .then((response) => response.json())
     .then((data) => {
