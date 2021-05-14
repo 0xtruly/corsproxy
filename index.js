@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '5mb ' }));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*', 'Access-Control-Allow-Headers', '*');
+  res.header({ 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*' });
   next();
 });
 
